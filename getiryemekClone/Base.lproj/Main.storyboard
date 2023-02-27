@@ -420,7 +420,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vtr-Sn-pYV">
-                                <rect key="frame" x="16" y="271" width="361" height="547"/>
+                                <rect key="frame" x="16" y="271" width="361" height="498"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="urunCell" rowHeight="147" id="Bwo-B0-uRe" customClass="UrunTableViewCell" customModule="getiryemekClone" customModuleProvider="target">
@@ -488,7 +488,7 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7N-ZF-NAw">
                                 <rect key="frame" x="16" y="242" width="361" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -503,7 +503,7 @@
                             <constraint firstItem="aQi-C0-Nrz" firstAttribute="top" secondItem="odH-r9-uMn" secondAttribute="top" id="rAv-pN-XNM"/>
                             <constraint firstItem="Y7N-ZF-NAw" firstAttribute="top" secondItem="aQi-C0-Nrz" secondAttribute="bottom" constant="8" id="v5d-bQ-fux"/>
                             <constraint firstItem="aQi-C0-Nrz" firstAttribute="trailing" secondItem="Y7N-ZF-NAw" secondAttribute="trailing" id="vhc-En-sGs"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="vtr-Sn-pYV" secondAttribute="bottom" constant="-49" id="wp7-xy-twa"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="vtr-Sn-pYV" secondAttribute="bottom" id="wp7-xy-twa"/>
                             <constraint firstItem="Y7N-ZF-NAw" firstAttribute="leading" secondItem="vtr-Sn-pYV" secondAttribute="leading" id="wqf-q0-RfV"/>
                             <constraint firstItem="Y7N-ZF-NAw" firstAttribute="trailing" secondItem="vtr-Sn-pYV" secondAttribute="trailing" id="xDa-Ie-vdG"/>
                         </constraints>

@@ -19,7 +19,7 @@ class UrunlerViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var urunler = [Urun]()
+    var viewModel = UrunlerViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,52 +31,30 @@ class UrunlerViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tumUrunleriGetir(tablo: "\(urunTablo!)")
-        
+        viewModel.tumUrunleriGetir(tablo: urunTablo!) { [weak self] in
+            self?.tableView.reloadData()
+        }
+
         
     }
     
-    func tumUrunleriGetir(tablo: String) {
-        guard let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/tumUrunleriGetir.php?tablo=\(tablo)") else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if error != nil || data == nil {
-                print("Hata")
-                return
-            }
-            
-            do {
-                let cevap = try JSONDecoder().decode(ApiCevap2.self, from: data!)
-                if let gelenUrunListesi = cevap.urunler {
-                    self.urunler = gelenUrunListesi
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
-            
-        }.resume()
-    }
-
     
 }
 
 extension UrunlerViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return urunler.count
+        return viewModel.urunler.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "urunCell", for: indexPath) as! UrunTableViewCell
         
-        cell.urunAdLabel.text = urunler[indexPath.row].urunAd
-        cell.urunFiyatLabel.text = "₺\(urunler[indexPath.row].urunFiyat)"
-        cell.urunImageView.image = UIImage(named: "\(urunler[indexPath.row].urunImage)")
-        cell.urunAciklamaTextView.text = urunler[indexPath.row].urunAciklama
+        cell.urunAdLabel.text = viewModel.urunler[indexPath.row].urunAd
+        cell.urunFiyatLabel.text = "₺\(viewModel.urunler[indexPath.row].urunFiyat)"
+        cell.urunImageView.image = UIImage(named: "\(viewModel.urunler[indexPath.row].urunImage)")
+        cell.urunAciklamaTextView.text = viewModel.urunler[indexPath.row].urunAciklama
         
         return cell
         
@@ -91,12 +69,15 @@ extension UrunlerViewController: UITableViewDelegate, UITableViewDataSource {
             if let siparisVC = segue.destination as? SiparisViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
                 
-                siparisVC.urunAciklamaVeri = "\(urunler[indexPath.row].urunAciklama)"
-                siparisVC.urunAdVeri = "\(urunler[indexPath.row].urunAd)"
-                siparisVC.urunFiyatVeri = "\(urunler[indexPath.row].urunFiyat)"
-                siparisVC.urunImageVeri = "\(urunler[indexPath.row].urunImage)"
+                siparisVC.urunAciklamaVeri = "\(viewModel.urunler[indexPath.row].urunAciklama)"
+                siparisVC.urunAdVeri = "\(viewModel.urunler[indexPath.row].urunAd)"
+                siparisVC.urunFiyatVeri = "\(viewModel.urunler[indexPath.row].urunFiyat)"
+                siparisVC.urunImageVeri = "\(viewModel.urunler[indexPath.row].urunImage)"
             }
         }
     }
+    
 }
+
+
 

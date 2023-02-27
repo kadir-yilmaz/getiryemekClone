@@ -9,9 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var restoranlar = [Restoran]()
-
-    
     @IBOutlet weak var kampanyaImageView: UIImageView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,7 +16,7 @@ class ViewController: UIViewController {
     var no = 1
     var timer = Timer()
     
-    
+    var viewModel = RestoranlarViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,37 +26,15 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tumRestoranlariGetir()
-        print(restoranlar)
-        
+        viewModel.tumRestoranlariGetir {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+
         
     }
     
-    func tumRestoranlariGetir(){
-        
-        let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/tumRestoranlariGetir.php")
-        
-        URLSession.shared.dataTask(with: url!){ data, response, error in
-            if error != nil || data == nil {
-                print("Hata")
-                return
-            }
-            
-            do{
-                let cevap = try JSONDecoder().decode(ApiCevap.self, from: data!)
-                if let gelenRestoranListesi = cevap.restoranlar{
-                    self.restoranlar = gelenRestoranListesi
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }catch{
-                print(error.localizedDescription)
-            }
-            
-        }.resume()
-        
-    }
     
     @objc func noArtır(){
         self.no += 1
@@ -74,16 +49,16 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restoranlar.count
+        return viewModel.restoranlar.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "restoranCell", for: indexPath) as! TableViewCell
-        
-        cell.restoranAd.text = restoranlar[indexPath.row].restoranAd
-        cell.restoranImage.image = UIImage(named: "\(restoranlar[indexPath.row].restoranImage)")
-        
+
+        cell.restoranAd.text = viewModel.restoranlar[indexPath.row].restoranAd
+        cell.restoranImage.image = UIImage(named: "\(viewModel.restoranlar[indexPath.row].restoranImage)")
+
         return cell
         
     }
@@ -98,9 +73,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == "toUrunlerVC" {
             if let urunlerVC = segue.destination as? UrunlerViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
-                let restoranImage = "\(restoranlar[indexPath.row].restoranImage)"
-                let restoranTabloAd = "\(restoranlar[indexPath.row].restoranTablo)"
-                let restoranAd = "\(restoranlar[indexPath.row].restoranAd)"
+                let restoranImage = "\(viewModel.restoranlar[indexPath.row].restoranImage)"
+                let restoranTabloAd = "\(viewModel.restoranlar[indexPath.row].restoranTablo)"
+                let restoranAd = "\(viewModel.restoranlar[indexPath.row].restoranAd)"
                 urunlerVC.resimAd = restoranImage
                 urunlerVC.urunTablo = restoranTabloAd
                 urunlerVC.restoranAd = restoranAd

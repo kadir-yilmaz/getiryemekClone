@@ -10,6 +10,8 @@
 		1140FEDD29AD0AC20087DF2A /* SepetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FEDC29AD0AC20087DF2A /* SepetViewController.swift */; };
 		1140FEDF29AD0AE10087DF2A /* SepetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FEDE29AD0AE10087DF2A /* SepetTableViewCell.swift */; };
 		1140FEE329AD16FC0087DF2A /* SiparisOnayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FEE229AD16FC0087DF2A /* SiparisOnayViewController.swift */; };
+		1140FEEA29AD32EB0087DF2A /* RestoranlarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FEE929AD32EB0087DF2A /* RestoranlarViewModel.swift */; };
+		1140FEED29AD36AC0087DF2A /* UrunlerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FEEC29AD36AC0087DF2A /* UrunlerViewModel.swift */; };
 		116F4F2C29A51D2F00DACF75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F2B29A51D2F00DACF75 /* AppDelegate.swift */; };
 		116F4F2E29A51D2F00DACF75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F2D29A51D2F00DACF75 /* SceneDelegate.swift */; };
 		116F4F3029A51D2F00DACF75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F2F29A51D2F00DACF75 /* ViewController.swift */; };
@@ -51,6 +53,8 @@
 		1140FEDC29AD0AC20087DF2A /* SepetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepetViewController.swift; sourceTree = "<group>"; };
 		1140FEDE29AD0AE10087DF2A /* SepetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepetTableViewCell.swift; sourceTree = "<group>"; };
 		1140FEE229AD16FC0087DF2A /* SiparisOnayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiparisOnayViewController.swift; sourceTree = "<group>"; };
+		1140FEE929AD32EB0087DF2A /* RestoranlarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoranlarViewModel.swift; sourceTree = "<group>"; };
+		1140FEEC29AD36AC0087DF2A /* UrunlerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrunlerViewModel.swift; sourceTree = "<group>"; };
 		116F4F2829A51D2F00DACF75 /* getiryemekClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = getiryemekClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116F4F2B29A51D2F00DACF75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116F4F2D29A51D2F00DACF75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1140FEE429AD2EC50087DF2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				116F4F6729A562CB00DACF75 /* Urun.swift */,
+				116F4F6129A5502A00DACF75 /* ApiCevap.swift */,
+				116F4F6929A5634F00DACF75 /* ApiCevap2.swift */,
+				116F4F5B29A53ED500DACF75 /* Restoran.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1140FEE529AD2ED00087DF2A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1140FEE929AD32EB0087DF2A /* RestoranlarViewModel.swift */,
+				1140FEEC29AD36AC0087DF2A /* UrunlerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1140FEE629AD2EE30087DF2A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				116F4F2B29A51D2F00DACF75 /* AppDelegate.swift */,
+				116F4F2D29A51D2F00DACF75 /* SceneDelegate.swift */,
+				116F4F2F29A51D2F00DACF75 /* ViewController.swift */,
+				116F4F5D29A5407E00DACF75 /* TableViewCell.swift */,
+				116F4F6329A5575B00DACF75 /* UrunlerViewController.swift */,
+				11904E7829ABF29D00A5B719 /* UrunTableViewCell.swift */,
+				11904E7A29AC1B8800A5B719 /* SiparisViewController.swift */,
+				1140FEDC29AD0AC20087DF2A /* SepetViewController.swift */,
+				1140FEDE29AD0AE10087DF2A /* SepetTableViewCell.swift */,
+				1140FEE229AD16FC0087DF2A /* SiparisOnayViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1140FEEB29AD360E0087DF2A /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				116F4F5F29A5498600DACF75 /* WebService.swift */,
+			);
+			path = WebService;
+			sourceTree = "<group>";
+		};
 		116F4F1F29A51D2F00DACF75 = {
 			isa = PBXGroup;
 			children = (
@@ -123,25 +172,14 @@
 		116F4F2A29A51D2F00DACF75 /* getiryemekClone */ = {
 			isa = PBXGroup;
 			children = (
-				116F4F2B29A51D2F00DACF75 /* AppDelegate.swift */,
-				116F4F2D29A51D2F00DACF75 /* SceneDelegate.swift */,
-				116F4F2F29A51D2F00DACF75 /* ViewController.swift */,
+				1140FEEB29AD360E0087DF2A /* WebService */,
+				1140FEE429AD2EC50087DF2A /* Model */,
+				1140FEE629AD2EE30087DF2A /* View */,
+				1140FEE529AD2ED00087DF2A /* ViewModel */,
 				116F4F3129A51D2F00DACF75 /* Main.storyboard */,
 				116F4F3429A51D3000DACF75 /* Assets.xcassets */,
 				116F4F3629A51D3000DACF75 /* LaunchScreen.storyboard */,
 				116F4F3929A51D3000DACF75 /* Info.plist */,
-				116F4F5B29A53ED500DACF75 /* Restoran.swift */,
-				116F4F5D29A5407E00DACF75 /* TableViewCell.swift */,
-				116F4F5F29A5498600DACF75 /* WebService.swift */,
-				116F4F6129A5502A00DACF75 /* ApiCevap.swift */,
-				116F4F6329A5575B00DACF75 /* UrunlerViewController.swift */,
-				116F4F6729A562CB00DACF75 /* Urun.swift */,
-				116F4F6929A5634F00DACF75 /* ApiCevap2.swift */,
-				11904E7829ABF29D00A5B719 /* UrunTableViewCell.swift */,
-				11904E7A29AC1B8800A5B719 /* SiparisViewController.swift */,
-				1140FEDC29AD0AC20087DF2A /* SepetViewController.swift */,
-				1140FEDE29AD0AE10087DF2A /* SepetTableViewCell.swift */,
-				1140FEE229AD16FC0087DF2A /* SiparisOnayViewController.swift */,
 			);
 			path = getiryemekClone;
 			sourceTree = "<group>";
@@ -308,7 +346,9 @@
 				116F4F6229A5502A00DACF75 /* ApiCevap.swift in Sources */,
 				116F4F5C29A53ED500DACF75 /* Restoran.swift in Sources */,
 				1140FEE329AD16FC0087DF2A /* SiparisOnayViewController.swift in Sources */,
+				1140FEEA29AD32EB0087DF2A /* RestoranlarViewModel.swift in Sources */,
 				116F4F6829A562CB00DACF75 /* Urun.swift in Sources */,
+				1140FEED29AD36AC0087DF2A /* UrunlerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
