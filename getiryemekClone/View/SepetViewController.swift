@@ -15,9 +15,7 @@ class SepetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(SepetViewController.sepettekiler)
-        
+                
         tableView.delegate = self
         tableView.dataSource = self
     }
