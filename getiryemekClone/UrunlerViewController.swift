@@ -10,8 +10,12 @@ import UIKit
 class UrunlerViewController: UIViewController {
     
     var resimAd: String?
+    var urunTablo: String?
+    var restoranAd: String?
     
     @IBOutlet weak var restoranImage: UIImageView!
+    
+    @IBOutlet weak var restoranAdLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,17 +26,40 @@ class UrunlerViewController: UIViewController {
         
         restoranImage.image = UIImage(named: resimAd ?? "pide")
         
+        restoranAdLabel.text = restoranAd
+        
         tableView.delegate = self
         tableView.dataSource = self
         
-        let u1 = Urun(urunId: "1", urunAd: "Sucuklu Pide", urunImage: "pide", urunAciklama: "Bol sucuklu pide.", urunFiyat: "120TL")
+        tumUrunleriGetir(tablo: "\(urunTablo!)")
         
-        urunler.append(u1)
-        urunler.append(u1)
-        urunler.append(u1)
-        urunler.append(u1)
-        urunler.append(u1)
+        
     }
+    
+    func tumUrunleriGetir(tablo: String) {
+        guard let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/tumUrunleriGetir.php?tablo=\(tablo)") else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if error != nil || data == nil {
+                print("Hata")
+                return
+            }
+            
+            do {
+                let cevap = try JSONDecoder().decode(ApiCevap2.self, from: data!)
+                if let gelenUrunListesi = cevap.urunler {
+                    self.urunler = gelenUrunListesi
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+        }.resume()
+    }
+
     
 }
 
@@ -44,20 +71,32 @@ extension UrunlerViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "yemekCell", for: indexPath) as! YemekTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "urunCell", for: indexPath) as! UrunTableViewCell
         
-        cell.yemekAd.text = urunler[indexPath.row].urunAd
-        cell.yemekFiyat.text = urunler[indexPath.row].urunFiyat
-        cell.yemekImage.image = UIImage(named: "pide")
-        cell.yemekAciklama.text = urunler[indexPath.row].urunAciklama
+        cell.urunAdLabel.text = urunler[indexPath.row].urunAd
+        cell.urunFiyatLabel.text = "₺\(urunler[indexPath.row].urunFiyat)"
+        cell.urunImageView.image = UIImage(named: "\(urunler[indexPath.row].urunImage)")
+        cell.urunAciklamaTextView.text = urunler[indexPath.row].urunAciklama
         
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        print("sepete ekle ekranına geçiliyor")
-
+        performSegue(withIdentifier: "toSiparisVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSiparisVC" {
+            if let siparisVC = segue.destination as? SiparisViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                
+                siparisVC.urunAciklamaVeri = "\(urunler[indexPath.row].urunAciklama)"
+                siparisVC.urunAdVeri = "\(urunler[indexPath.row].urunAd)"
+                siparisVC.urunFiyatVeri = "\(urunler[indexPath.row].urunFiyat)"
+                siparisVC.urunImageVeri = "\(urunler[indexPath.row].urunImage)"
+            }
+        }
     }
 }
+

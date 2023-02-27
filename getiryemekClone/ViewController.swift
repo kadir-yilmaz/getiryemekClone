@@ -31,37 +31,35 @@ class ViewController: UIViewController {
         
         tumRestoranlariGetir()
         print(restoranlar)
-                
-     
         
         
     }
     
     func tumRestoranlariGetir(){
-           
-           let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/tumRestoranlariGetir.php")
-           
-           URLSession.shared.dataTask(with: url!){ data, response, error in
-               if error != nil || data == nil {
-                   print("Hata")
-                   return
-               }
-               
-               do{
-                   let cevap = try JSONDecoder().decode(ApiCevap.self, from: data!)
-                   if let gelenRestoranListesi = cevap.restoranlar{
-                       self.restoranlar = gelenRestoranListesi
-                   }
-                   DispatchQueue.main.async {
-                       self.tableView.reloadData()
-                   }
-               }catch{
-                   print(error.localizedDescription)
-               }
-               
-           }.resume()
-           
-       }
+        
+        let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/tumRestoranlariGetir.php")
+        
+        URLSession.shared.dataTask(with: url!){ data, response, error in
+            if error != nil || data == nil {
+                print("Hata")
+                return
+            }
+            
+            do{
+                let cevap = try JSONDecoder().decode(ApiCevap.self, from: data!)
+                if let gelenRestoranListesi = cevap.restoranlar{
+                    self.restoranlar = gelenRestoranListesi
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }catch{
+                print(error.localizedDescription)
+            }
+            
+        }.resume()
+        
+    }
     
     @objc func noArtır(){
         self.no += 1
@@ -70,8 +68,6 @@ class ViewController: UIViewController {
             no = 1
         }
     }
-    
-    
 
 
 }
@@ -102,8 +98,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == "toUrunlerVC" {
             if let urunlerVC = segue.destination as? UrunlerViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
-                let resimAd = "\(restoranlar[indexPath.row].restoranImage)"
-                urunlerVC.resimAd = resimAd
+                let restoranImage = "\(restoranlar[indexPath.row].restoranImage)"
+                let restoranTabloAd = "\(restoranlar[indexPath.row].restoranTablo)"
+                let restoranAd = "\(restoranlar[indexPath.row].restoranAd)"
+                urunlerVC.resimAd = restoranImage
+                urunlerVC.urunTablo = restoranTabloAd
+                urunlerVC.restoranAd = restoranAd
             }
         }
     }

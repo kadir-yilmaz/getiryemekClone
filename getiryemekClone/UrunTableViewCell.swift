@@ -1,22 +1,21 @@
 //
-//  YemekTableViewCell.swift
+//  UrunTableViewCell.swift
 //  getiryemekClone
 //
-//  Created by Kadir Yılmaz on 21.02.2023.
+//  Created by Kadir Yılmaz on 26.02.2023.
 //
 
 import UIKit
 
-class YemekTableViewCell: UITableViewCell {
+class UrunTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var yemekAd: UILabel!
+    @IBOutlet weak var urunAdLabel: UILabel!
     
-    @IBOutlet weak var yemekAciklama: UITextView!
     
-    @IBOutlet weak var yemekFiyat: UILabel!
+    @IBOutlet weak var urunFiyatLabel: UILabel!
+    @IBOutlet weak var urunImageView: UIImageView!
     
-    @IBOutlet weak var yemekImage: UIImageView!
-    
+    @IBOutlet weak var urunAciklamaTextView: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,5 +26,6 @@ class YemekTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1140FEDD29AD0AC20087DF2A /* SepetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FEDC29AD0AC20087DF2A /* SepetViewController.swift */; };
+		1140FEDF29AD0AE10087DF2A /* SepetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FEDE29AD0AE10087DF2A /* SepetTableViewCell.swift */; };
+		1140FEE329AD16FC0087DF2A /* SiparisOnayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FEE229AD16FC0087DF2A /* SiparisOnayViewController.swift */; };
 		116F4F2C29A51D2F00DACF75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F2B29A51D2F00DACF75 /* AppDelegate.swift */; };
 		116F4F2E29A51D2F00DACF75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F2D29A51D2F00DACF75 /* SceneDelegate.swift */; };
 		116F4F3029A51D2F00DACF75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F2F29A51D2F00DACF75 /* ViewController.swift */; };
@@ -21,9 +24,10 @@
 		116F4F6029A5498600DACF75 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F5F29A5498600DACF75 /* WebService.swift */; };
 		116F4F6229A5502A00DACF75 /* ApiCevap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F6129A5502A00DACF75 /* ApiCevap.swift */; };
 		116F4F6429A5575B00DACF75 /* UrunlerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F6329A5575B00DACF75 /* UrunlerViewController.swift */; };
-		116F4F6629A55AEA00DACF75 /* YemekTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F6529A55AEA00DACF75 /* YemekTableViewCell.swift */; };
 		116F4F6829A562CB00DACF75 /* Urun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F6729A562CB00DACF75 /* Urun.swift */; };
 		116F4F6A29A5634F00DACF75 /* ApiCevap2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F4F6929A5634F00DACF75 /* ApiCevap2.swift */; };
+		11904E7929ABF29D00A5B719 /* UrunTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11904E7829ABF29D00A5B719 /* UrunTableViewCell.swift */; };
+		11904E7B29AC1B8800A5B719 /* SiparisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11904E7A29AC1B8800A5B719 /* SiparisViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1140FEDC29AD0AC20087DF2A /* SepetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepetViewController.swift; sourceTree = "<group>"; };
+		1140FEDE29AD0AE10087DF2A /* SepetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepetTableViewCell.swift; sourceTree = "<group>"; };
+		1140FEE229AD16FC0087DF2A /* SiparisOnayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiparisOnayViewController.swift; sourceTree = "<group>"; };
 		116F4F2829A51D2F00DACF75 /* getiryemekClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = getiryemekClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116F4F2B29A51D2F00DACF75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116F4F2D29A51D2F00DACF75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,9 +69,10 @@
 		116F4F5F29A5498600DACF75 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		116F4F6129A5502A00DACF75 /* ApiCevap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCevap.swift; sourceTree = "<group>"; };
 		116F4F6329A5575B00DACF75 /* UrunlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrunlerViewController.swift; sourceTree = "<group>"; };
-		116F4F6529A55AEA00DACF75 /* YemekTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YemekTableViewCell.swift; sourceTree = "<group>"; };
 		116F4F6729A562CB00DACF75 /* Urun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urun.swift; sourceTree = "<group>"; };
 		116F4F6929A5634F00DACF75 /* ApiCevap2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCevap2.swift; sourceTree = "<group>"; };
+		11904E7829ABF29D00A5B719 /* UrunTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrunTableViewCell.swift; sourceTree = "<group>"; };
+		11904E7A29AC1B8800A5B719 /* SiparisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiparisViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,9 +135,13 @@
 				116F4F5F29A5498600DACF75 /* WebService.swift */,
 				116F4F6129A5502A00DACF75 /* ApiCevap.swift */,
 				116F4F6329A5575B00DACF75 /* UrunlerViewController.swift */,
-				116F4F6529A55AEA00DACF75 /* YemekTableViewCell.swift */,
 				116F4F6729A562CB00DACF75 /* Urun.swift */,
 				116F4F6929A5634F00DACF75 /* ApiCevap2.swift */,
+				11904E7829ABF29D00A5B719 /* UrunTableViewCell.swift */,
+				11904E7A29AC1B8800A5B719 /* SiparisViewController.swift */,
+				1140FEDC29AD0AC20087DF2A /* SepetViewController.swift */,
+				1140FEDE29AD0AE10087DF2A /* SepetTableViewCell.swift */,
+				1140FEE229AD16FC0087DF2A /* SiparisOnayViewController.swift */,
 			);
 			path = getiryemekClone;
 			sourceTree = "<group>";
@@ -284,14 +296,18 @@
 			files = (
 				116F4F6029A5498600DACF75 /* WebService.swift in Sources */,
 				116F4F6A29A5634F00DACF75 /* ApiCevap2.swift in Sources */,
-				116F4F6629A55AEA00DACF75 /* YemekTableViewCell.swift in Sources */,
 				116F4F5E29A5407E00DACF75 /* TableViewCell.swift in Sources */,
 				116F4F6429A5575B00DACF75 /* UrunlerViewController.swift in Sources */,
+				1140FEDD29AD0AC20087DF2A /* SepetViewController.swift in Sources */,
+				11904E7B29AC1B8800A5B719 /* SiparisViewController.swift in Sources */,
 				116F4F3029A51D2F00DACF75 /* ViewController.swift in Sources */,
+				1140FEDF29AD0AE10087DF2A /* SepetTableViewCell.swift in Sources */,
+				11904E7929ABF29D00A5B719 /* UrunTableViewCell.swift in Sources */,
 				116F4F2C29A51D2F00DACF75 /* AppDelegate.swift in Sources */,
 				116F4F2E29A51D2F00DACF75 /* SceneDelegate.swift in Sources */,
 				116F4F6229A5502A00DACF75 /* ApiCevap.swift in Sources */,
 				116F4F5C29A53ED500DACF75 /* Restoran.swift in Sources */,
+				1140FEE329AD16FC0087DF2A /* SiparisOnayViewController.swift in Sources */,
 				116F4F6829A562CB00DACF75 /* Urun.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
