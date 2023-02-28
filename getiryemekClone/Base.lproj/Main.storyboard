@@ -245,7 +245,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4436481" translatesAutoresizingMaskIntoConstraints="NO" id="7n8-un-lDM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tik" translatesAutoresizingMaskIntoConstraints="NO" id="7n8-un-lDM">
                                 <rect key="frame" x="56" y="289" width="281" height="275"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -324,8 +324,8 @@
                                                         <action selector="urunAdetStepper:" destination="jLv-WS-ygw" eventType="valueChanged" id="iqT-nO-Gif"/>
                                                     </connections>
                                                 </stepper>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzs-aD-gEF">
-                                                    <rect key="frame" x="311" y="11" width="30" height="29"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzs-aD-gEF">
+                                                    <rect key="frame" x="292" y="11" width="69" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -336,7 +336,7 @@
                                                 <constraint firstItem="8HV-80-VgT" firstAttribute="leading" secondItem="M2I-eA-OJ9" secondAttribute="leadingMargin" id="J0E-yd-ysQ"/>
                                                 <constraint firstItem="8HV-80-VgT" firstAttribute="trailing" secondItem="5wv-Lf-XKI" secondAttribute="trailing" id="KYm-gI-AiC"/>
                                                 <constraint firstItem="UTj-CF-xGV" firstAttribute="leading" secondItem="5wv-Lf-XKI" secondAttribute="trailing" constant="26" id="Mhc-EQ-1cN"/>
-                                                <constraint firstItem="Fzs-aD-gEF" firstAttribute="leading" secondItem="8HV-80-VgT" secondAttribute="trailing" constant="58" id="NeY-f7-xQn"/>
+                                                <constraint firstItem="Fzs-aD-gEF" firstAttribute="leading" secondItem="8HV-80-VgT" secondAttribute="trailing" constant="39" id="NeY-f7-xQn"/>
                                                 <constraint firstItem="UTj-CF-xGV" firstAttribute="top" secondItem="Fzs-aD-gEF" secondAttribute="bottom" constant="8" id="ePV-kF-dN2"/>
                                                 <constraint firstItem="Fzs-aD-gEF" firstAttribute="top" secondItem="M2I-eA-OJ9" secondAttribute="topMargin" id="hW9-Lj-cVT"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="UTj-CF-xGV" secondAttribute="bottom" constant="5" id="hjw-Fw-wuo"/>
@@ -587,6 +587,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="piE-2b-H8P"/>
                     <connections>
+                        <outlet property="adetStepper" destination="S8C-04-RDs" id="S24-lD-aVw"/>
                         <outlet property="urunAciklamaTextView" destination="gkZ-yq-Bvq" id="eFe-xY-qF5"/>
                         <outlet property="urunAdLabel" destination="I9K-hl-VsC" id="e1f-cq-qRW"/>
                         <outlet property="urunAdetLabel" destination="3eo-DN-Wm2" id="bYr-Eg-GUr"/>
@@ -640,7 +641,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4436481" width="512" height="512"/>
         <image name="bag" catalog="system" width="128" height="128"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="cigkofte" width="480" height="300"/>
@@ -650,6 +650,7 @@
         <image name="kampanya1" width="1024" height="509"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="tik" width="512" height="512"/>
         <namedColor name="brandColor2">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

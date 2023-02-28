@@ -40,6 +40,7 @@ extension SepetViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.urunAdLabel.text = SepetViewController.sepettekiler[indexPath.row].urunAd
         cell.urunFiyatLabel.text = SepetViewController.sepettekiler[indexPath.row].urunFiyat
+        cell.urunAdetLabel.text = "\(SepetViewController.sepettekiler[indexPath.row].urunAdet)"
         
         return cell
         

@@ -24,7 +24,7 @@ class UrunlerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        restoranImage.image = UIImage(named: resimAd ?? "pide")
+        
         
         restoranAdLabel.text = restoranAd
         
@@ -34,6 +34,33 @@ class UrunlerViewController: UIViewController {
         viewModel.tumUrunleriGetir(tablo: urunTablo!) { [weak self] in
             self?.tableView.reloadData()
         }
+        /*
+         UI resim yüklenirken donar
+         
+        if let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/images/\(resimAd!).jpeg") {
+            do {
+                let data = try Data(contentsOf: url)
+                restoranImage.image = UIImage(data: data)
+            } catch let error {
+                print("Error getting image data: \(error.localizedDescription)")
+            }
+        }*/
+        
+        if let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/images/\(resimAd!).jpeg") {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    print("Error getting image data: \(error.localizedDescription)")
+                    return
+                }
+                if let data = data {
+                    DispatchQueue.main.async {
+                        self.restoranImage.image = UIImage(data: data)
+                    }
+                }
+            }
+            task.resume()
+        }
+
 
         
     }
@@ -53,7 +80,33 @@ extension UrunlerViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.urunAdLabel.text = viewModel.urunler[indexPath.row].urunAd
         cell.urunFiyatLabel.text = "₺\(viewModel.urunler[indexPath.row].urunFiyat)"
-        cell.urunImageView.image = UIImage(named: "\(viewModel.urunler[indexPath.row].urunImage)")
+        /*
+         UI resim yüklenirken donar
+         
+        if let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/images/\(viewModel.urunler[indexPath.row].urunImage).jpeg") {
+            do {
+                let data = try Data(contentsOf: url)
+                cell.urunImageView.image = UIImage(data: data)
+            } catch let error {
+                print("Error getting image data: \(error.localizedDescription)")
+            }
+        }*/
+        
+        if let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/images/\(resimAd!).jpeg") {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    print("Error getting image data: \(error.localizedDescription)")
+                    return
+                }
+                if let data = data {
+                    DispatchQueue.main.async {
+                        cell.urunImageView.image = UIImage(data: data)
+
+                    }
+                }
+            }
+            task.resume()
+        }
         cell.urunAciklamaTextView.text = viewModel.urunler[indexPath.row].urunAciklama
         
         return cell

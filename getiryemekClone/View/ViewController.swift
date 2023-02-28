@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     @objc func noArtır(){
         self.no += 1
         kampanyaImageView.image = UIImage(named: "kampanya\(no)")
-        if no == 5 {
+        if no == 4 {
             no = 1
         }
     }
@@ -57,7 +57,36 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "restoranCell", for: indexPath) as! TableViewCell
 
         cell.restoranAd.text = viewModel.restoranlar[indexPath.row].restoranAd
-        cell.restoranImage.image = UIImage(named: "\(viewModel.restoranlar[indexPath.row].restoranImage)")
+        /*
+         UI resim yüklenirken donar
+         
+        if let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/images/\(viewModel.restoranlar[indexPath.row].restoranImage).jpeg") {
+            do {
+                let data = try Data(contentsOf: url)
+                cell.restoranImage.image = UIImage(data: data)
+            } catch let error {
+                print("Error getting image data: \(error.localizedDescription)")
+            }
+        }*/
+        
+        if let url = URL(string: "https://kadiryilmazhatay.000webhostapp.com/getiryemekWebService/images/\(viewModel.restoranlar[indexPath.row].restoranImage).jpeg") {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    print("Error getting image data: \(error.localizedDescription)")
+                    return
+                }
+                if let data = data {
+                    DispatchQueue.main.async {
+                        cell.restoranImage.image = UIImage(data: data)
+
+                    }
+                }
+            }
+            task.resume()
+        }
+        
+        
+
 
         return cell
         
@@ -83,7 +112,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    
-    
 }
 

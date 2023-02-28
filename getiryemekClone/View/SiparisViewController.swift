@@ -14,6 +14,11 @@ class SiparisViewController: UIViewController {
     var urunAciklamaVeri: String?
     var urunImageVeri: String?
     
+    var urunAdet: String?
+    @IBOutlet weak var adetStepper: UIStepper!
+    
+    
+    
     @IBOutlet weak var urunImage: UIImageView!
     
     
@@ -38,11 +43,17 @@ class SiparisViewController: UIViewController {
     
     @IBAction func sepeteEkle(_ sender: Any) {
         
-        let urun = Urun(urunId: "1", urunAd: urunAdVeri!, urunImage: urunImageVeri!, urunAciklama: urunAciklamaVeri!, urunFiyat: urunFiyatVeri!)
+        urunAdet = String(Int(adetStepper.value))
+        
+        let urun = Urun(urunId: "1", urunAd: urunAdVeri!, urunImage: urunImageVeri!, urunAciklama: urunAciklamaVeri!, urunFiyat: urunFiyatVeri!, urunAdet: urunAdet!)
         
         SepetViewController.sepettekiler.append(urun)
         
+        
+        
         self.navigationController?.popViewController(animated: true)
+        
+        
     }
     
     
